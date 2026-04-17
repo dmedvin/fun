@@ -1,0 +1,75 @@
+<html>
+    <div id="win67">67</div>
+
+<!-- Sound (replace with your own file if you want) -->
+<audio id="winSound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
+
+<style>
+body {
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Base style */
+#win67 {
+  font-size: 120px;
+  font-weight: 900;
+  color: #ff3b3b;
+  text-shadow: 0 0 10px #ff3b3b, 0 0 30px #ff0000;
+  display: inline-block;
+}
+
+/* Shake + meme chaos */
+@keyframes memeShake {
+  0% { transform: translate(0,0) rotate(0deg) scale(1); }
+  10% { transform: translate(-6px, 4px) rotate(-8deg) scale(1.1); }
+  20% { transform: translate(6px, -4px) rotate(8deg) scale(1.15); }
+  30% { transform: translate(-8px, 5px) rotate(-10deg) scale(1.1); }
+  40% { transform: translate(8px, -5px) rotate(10deg) scale(1.2); }
+  50% { transform: translate(-5px, 3px) rotate(-6deg) scale(1.1); }
+  60% { transform: translate(5px, -3px) rotate(6deg) scale(1.15); }
+  70% { transform: translate(-3px, 2px) rotate(-3deg) scale(1.05); }
+  80% { transform: translate(3px, -2px) rotate(3deg) scale(1.1); }
+  90% { transform: translate(0,0) rotate(0deg) scale(1.05); }
+  100% { transform: translate(0,0) rotate(0deg) scale(1); }
+}
+
+/* Flash colors */
+@keyframes flash {
+  0% { color: #ff3b3b; }
+  25% { color: #00ffea; }
+  50% { color: #ffff00; }
+  75% { color: #ff00ff; }
+  100% { color: #ff3b3b; }
+}
+
+/* Combine effects */
+.win-active {
+  animation: memeShake 0.6s ease-in-out, flash 0.6s linear;
+}
+</style>
+
+<script>
+function triggerWin67() {
+  const el = document.getElementById("win67");
+  const sound = document.getElementById("winSound");
+
+  // Restart animation
+  el.classList.remove("win-active");
+  void el.offsetWidth;
+  el.classList.add("win-active");
+
+  // Play sound
+  sound.currentTime = 0;
+  sound.play().catch(() => {
+    console.log("User interaction required for sound playback.");
+  });
+}
+
+/* Demo trigger */
+setTimeout(triggerWin67, 1500);
+</script>
+</html>

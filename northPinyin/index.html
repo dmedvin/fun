@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Balloon Pop — 汉字</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-FTQ4W87FCQ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FTQ4W87FCQ');</script><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:linear-gradient(to bottom,#5D9CEC 0%,#A8D8EA 45%,#A8E6CF 100%);height:100vh;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:manipulation}#hud{position:fixed;top:0;left:0;right:0;display:none;justify-content:space-between;align-items:center;padding:10px 20px;background:rgba(255,255,255,0.3);backdrop-filter:blur(8px);z-index:100;font-weight:700;color:#222;font-size:1.1rem}#speed-control{display:flex;align-items:center;gap:6px;font-size:1.3rem;line-height:1}#autoread-control{display:flex;align-items:center;gap:7px;font-size:0.9rem;color:#222;font-weight:700}#autoread-toggle{appearance:none;-webkit-appearance:none;width:42px;height:24px;border-radius:12px;background:#bbb;cursor:pointer;position:relative;transition:background 0.2s;flex-shrink:0}#autoread-toggle::after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);transition:left 0.2s}#autoread-toggle:checked{background:#20bf6b}#autoread-toggle:checked::after{left:21px}#speed-slider{-webkit-appearance:none;appearance:none;width:400px;height:6px;border-radius:3px;background:linear-gradient(to right,#20bf6b,#feca57,#eb3b5a);outline:none;cursor:pointer}#speed-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #555;box-shadow:0 2px 6px rgba(0,0,0,0.25);cursor:pointer}#speed-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid #555;cursor:pointer}#question-area{position:fixed;top:52px;left:50%;transform:translateX(-50%);text-align:center;z-index:100;display:none}#prompt{font-size:0.75rem;color:#444;margin-bottom:3px;letter-spacing:0.04em}#chinese-char{font-size:5rem;line-height:1;color:#1a1a2e;background:rgba(255,255,255,0.75);border-radius:16px;padding:8px 24px;box-shadow:0 4px 20px rgba(0,0,0,0.15);white-space:nowrap}#game-area{position:fixed;inset:0;pointer-events:none}.b-outer{position:absolute;bottom:-240px;display:flex;flex-direction:column;align-items:center;cursor:pointer;pointer-events:all;animation:floatUp linear forwards}.b-body{width:120px;height:142px;border-radius:50% 50% 50% 50% / 55% 55% 45% 45%;position:relative;display:flex;align-items:center;justify-content:center;animation:sway 2.8s ease-in-out infinite;box-shadow:inset -12px -12px 30px rgba(0,0,0,0.15),inset 9px 9px 22px rgba(255,255,255,0.4)}.b-body::after{content:'';position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:18px solid var(--c)}.b-body::before{content:'';position:absolute;top:20px;left:22px;width:32px;height:18px;background:rgba(255,255,255,0.42);border-radius:50%;transform:rotate(-35deg);pointer-events:none}.b-word{font-size:1.35rem;font-weight:900;color:#1a1a1a;text-shadow:0 1px 0 rgba(255,255,255,0.6);text-align:center;padding:0 10px;white-space:nowrap;line-height:1.25;position:relative;z-index:1;letter-spacing:0.01em}.b-knot{width:14px;height:14px;border-radius:50%}.b-string{width:2px;height:70px;background:rgba(60,60,60,0.35)}@keyframes floatUp{from{transform:translateY(0)}to{transform:translateY(calc(-100vh - 280px))}}@keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}@keyframes pop{0%{transform:scale(1);opacity:1}35%{transform:scale(1.7);opacity:0.8}100%{transform:scale(0);opacity:0}}#feedback{position:fixed;top:45%;left:50%;transform:translate(-50%,-50%);font-size:2.5rem;font-weight:900;pointer-events:none;z-index:200;opacity:0}@keyframes feedAnim{0%{transform:translate(-50%,-50%) scale(0.5);opacity:1}55%{transform:translate(-50%,-65%) scale(1.1);opacity:1}100%{transform:translate(-50%,-95%) scale(1);opacity:0}}.screen{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(10,10,35,0.65);backdrop-filter:blur(5px);z-index:300;color:#fff;text-align:center;padding:28px;gap:18px}.screen h1{font-size:2.8rem}.screen p{font-size:1.15rem;line-height:1.7;opacity:0.92;max-width:380px}button{font-size:1.25rem;padding:13px 44px;border:none;border-radius:50px;cursor:pointer;font-weight:800;color:#fff;box-shadow:0 5px 18px rgba(0,0,0,0.3);transition:transform .12s,box-shadow .12s}button:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}button:active{transform:translateY(0)}.green{background:#20bf6b}.red{background:#eb3b5a}#home-btn{position:fixed;top:56px;left:12px;z-index:9999;background:rgba(0,0,0,0.45);color:#fff;text-decoration:none;font-size:0.85rem;font-weight:700;padding:7px 14px;border-radius:20px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.18);transition:background 0.15s,transform 0.15s}#home-btn:hover{background:rgba(0,0,0,0.7);transform:translateY(-1px)}</style></head><body><a id="home-btn" href="../index.html">🏠 Home</a><div id="start-screen" class="screen"><h1>🎈 Balloon Pop</h1><p>A Chinese character appears at the top.<br>
+     Pop the balloon with the correct <strong>English meaning</strong>!<br><br>
+     ✅ Correct = <strong>+1 point</strong><br>
+     ❌ Wrong or missed = <strong>−1 point</strong><br>
+     🏆 Reach <strong>10 points</strong> to win!</p><button class="green" onclick="startGame()">Let's Play!</button></div><div id="win-screen" class="screen" style="display:none"><h1>🎉 You Win!</h1><p id="win-msg"></p><button class="green" onclick="startGame()">Play Again</button></div><div id="lose-screen" class="screen" style="display:none"><h1>😢 Try Again!</h1><p id="lose-msg"></p><button class="red" onclick="startGame()">Retry</button></div><div id="hud"><span id="score-el">⭐ 0</span><div id="speed-control"><span title="Slower">🐢</span><input type="range" id="speed-slider" min="0" max="4" step="0.1" value="2"><span title="Faster">🐇</span></div><div id="autoread-control"><input type="checkbox" id="autoread-toggle"><label for="autoread-toggle">🔊 Auto-read</label></div><span id="round-el">Round 1</span></div><div id="question-area"><div id="prompt">What does this mean?</div><div id="chinese-char">?</div></div><div id="game-area"></div><div id="feedback"></div><script>const VOCAB = [
+{ zh:'一', en:'one' },
+{ zh:'二', en:'two' },
+{ zh:'三', en:'three' },
+{ zh:'四', en:'four' },
+{ zh:'五', en:'five' },
+{ zh:'六', en:'six' },
+{ zh:'七', en:'seven' },
+{ zh:'八', en:'eight' },
+{ zh:'九', en:'nine' },
+{ zh:'十', en:'ten' },
+{ zh:'百', en:'hundred' },
+{ zh:'千', en:'thousand' },
+{ zh:'上', en:'up' },
+{ zh:'中', en:'middle' },
+{ zh:'下', en:'down' },
+{ zh:'左', en:'left' },
+{ zh:'右', en:'right' },
+{ zh:'前', en:'front' },
+{ zh:'后', en:'behind' },
+{ zh:'里', en:'inside' },
+{ zh:'外', en:'outside' },
+{ zh:'高', en:'tall' },
+{ zh:'大', en:'big' },
+{ zh:'小', en:'small' },
+{ zh:'多', en:'many' },
+{ zh:'少', en:'few' },
+{ zh:'长', en:'long' },
+{ zh:'好', en:'good' },
+{ zh:'真', en:'true' },
+{ zh:'快', en:'fast' },
+{ zh:'老', en:'old' },
+{ zh:'新', en:'new' },
+{ zh:'明', en:'bright' },
+{ zh:'早', en:'morning' },
+{ zh:'正', en:'correct' },
+{ zh:'尖', en:'pointy' },
+{ zh:'青', en:'green' },
+{ zh:'太', en:'too' },
+{ zh:'很', en:'very' },
+{ zh:'手', en:'hand' },
+{ zh:'目', en:'eye' },
+{ zh:'舌', en:'tongue' },
+{ zh:'牙', en:'tooth' },
+{ zh:'耳', en:'ear' },
+{ zh:'心', en:'heart' },
+{ zh:'肚', en:'tummy' },
+{ zh:'足', en:'foot' },
+{ zh:'力', en:'strength' },
+{ zh:'毛', en:'fur' },
+{ zh:'山', en:'mountain' },
+{ zh:'火', en:'fire' },
+{ zh:'水', en:'water' },
+{ zh:'土', en:'soil' },
+{ zh:'木', en:'wood' },
+{ zh:'林', en:'forest' },
+{ zh:'月', en:'moon' },
+{ zh:'天', en:'sky' },
+{ zh:'生', en:'life' },
+{ zh:'日', en:'sun' },
+{ zh:'云', en:'cloud' },
+{ zh:'花', en:'flower' },
+{ zh:'雨', en:'rain' },
+{ zh:'雪', en:'snow' },
+{ zh:'石', en:'rock' },
+{ zh:'风', en:'wind' },
+{ zh:'沙', en:'sand' },
+{ zh:'竹', en:'bamboo' },
+{ zh:'田', en:'field' },
+{ zh:'地', en:'ground' },
+{ zh:'星', en:'star' },
+{ zh:'海', en:'sea' },
+{ zh:'河', en:'river' },
+{ zh:'江', en:'big river' },
+{ zh:'禾', en:'grain' },
+{ zh:'红', en:'red' },
+{ zh:'白', en:'white' },
+{ zh:'黄', en:'yellow' },
+{ zh:'黑', en:'black' },
+{ zh:'牛', en:'cow' },
+{ zh:'马', en:'horse' },
+{ zh:'鸟', en:'bird' },
+{ zh:'鱼', en:'fish' },
+{ zh:'羊', en:'sheep' },
+{ zh:'象', en:'elephant' },
+{ zh:'蛙', en:'frog' },
+{ zh:'人', en:'person' },
+{ zh:'女', en:'girl' },
+{ zh:'男', en:'boy' },
+{ zh:'妈', en:'mom' },
+{ zh:'儿', en:'child' },
+{ zh:'爸', en:'dad' },
+{ zh:'哥', en:'big brother' },
+{ zh:'弟', en:'little brother'},
+{ zh:'妹', en:'little sister' },
+{ zh:'奶', en:'grandma' },
+{ zh:'你', en:'you' },
+{ zh:'我', en:'me' },
+{ zh:'他', en:'he' },
+{ zh:'谁', en:'who' },
+{ zh:'姓', en:'last name' },
+{ zh:'李', en:'surname Li' },
+{ zh:'朋', en:'pal' },
+{ zh:'友', en:'friend' },
+{ zh:'子', en:'son' },
+{ zh:'米', en:'rice' },
+{ zh:'肉', en:'meat' },
+{ zh:'包', en:'bun' },
+{ zh:'刀', en:'knife' },
+{ zh:'笔', en:'pen' },
+{ zh:'本', en:'notebook' },
+{ zh:'洞', en:'cave' },
+{ zh:'家', en:'home' },
+{ zh:'校', en:'school' },
+{ zh:'贝', en:'shell' },
+{ zh:'卡', en:'card' },
+{ zh:'字', en:'character' },
+{ zh:'名', en:'name' },
+{ zh:'话', en:'speech' },
+{ zh:'言', en:'word' },
+{ zh:'歌', en:'song' },
+{ zh:'年', en:'year' },
+{ zh:'冬', en:'winter' },
+{ zh:'春', en:'spring' },
+{ zh:'书', en:'book' },
+{ zh:'果', en:'fruit' },
+{ zh:'信', en:'letter' },
+{ zh:'门', en:'door' },
+{ zh:'草', en:'grass' },
+{ zh:'位', en:'seat' },
+{ zh:'朵', en:'blossom' },
+{ zh:'工', en:'work' },
+{ zh:'又', en:'again' },
+{ zh:'坐', en:'sit' },
+{ zh:'去', en:'go' },
+{ zh:'来', en:'come' },
+{ zh:'看', en:'look' },
+{ zh:'见', en:'see' },
+{ zh:'哭', en:'cry' },
+{ zh:'笑', en:'laugh' },
+{ zh:'叫', en:'shout' },
+{ zh:'唱', en:'sing' },
+{ zh:'走', en:'walk' },
+{ zh:'玩', en:'play' },
+{ zh:'找', en:'find' },
+{ zh:'吃', en:'eat' },
+{ zh:'说', en:'say' },
+{ zh:'问', en:'ask' },
+{ zh:'给', en:'give' },
+{ zh:'送', en:'send' },
+{ zh:'回', en:'return' },
+{ zh:'学', en:'learn' },
+{ zh:'画', en:'draw' },
+{ zh:'拿', en:'hold' },
+{ zh:'想', en:'think' },
+{ zh:'要', en:'want' },
+{ zh:'开', en:'open' },
+{ zh:'爱', en:'love' },
+{ zh:'进', en:'enter' },
+{ zh:'出', en:'go out' },
+{ zh:'用', en:'use' },
+{ zh:'住', en:'live' },
+{ zh:'猜', en:'guess' },
+{ zh:'流', en:'flow' },
+{ zh:'跟', en:'follow' },
+{ zh:'起', en:'rise' },
+{ zh:'立', en:'stand' },
+{ zh:'入', en:'go in' },
+{ zh:'从', en:'from' },
+{ zh:'到', en:'arrive' },
+{ zh:'交', en:'exchange' },
+{ zh:'分', en:'divide' },
+{ zh:'把', en:'hold' },
+{ zh:'合', en:'combine' },
+{ zh:'请', en:'please' },
+{ zh:'过', en:'pass' },
+{ zh:'飞', en:'fly' },
+{ zh:'游', en:'swim' },
+{ zh:'跑', en:'run' },
+{ zh:'跳', en:'jump' },
+{ zh:'爬', en:'climb' },
+{ zh:'共', en:'together' },
+{ zh:'如', en:'like' },
+{ zh:'先', en:'first' },
+{ zh:'为', en:'for' },
+{ zh:'不', en:'no' },
+{ zh:'有', en:'have' },
+{ zh:'是', en:'is' },
+{ zh:'在', en:'at' },
+{ zh:'和', en:'and' },
+{ zh:'没', en:'none' },
+{ zh:'可', en:'can' },
+{ zh:'以', en:'using' },
+{ zh:'两', en:'both' },
+{ zh:'只', en:'only' },
+{ zh:'比', en:'than' },
+{ zh:'怎', en:'how' },
+{ zh:'会', en:'can' },
+{ zh:'同', en:'same' },
+{ zh:'几', en:'how many' },
+{ zh:'怕', en:'scared' },
+{ zh:'午', en:'noon' },
+{ zh:'还', en:'still' },
+{ zh:'个', en:'each' },
+{ zh:'们', en:'plural' },
+{ zh:'都', en:'all' },
+{ zh:'每', en:'every' },
+{ zh:'也', en:'also' },
+{ zh:'的', en:'possessive' },
+{ zh:'了', en:'done' },
+{ zh:'巴', en:'tail' },
+{ zh:'呀', en:'hey' },
+{ zh:'就', en:'then' },
+{ zh:'再', en:'again' },
+{ zh:'才', en:'just' },
+{ zh:'久', en:'long time' },
+{ zh:'得', en:'get' },
+{ zh:'什么', en:'what' },
+{ zh:'告诉', en:'tell' },
+{ zh:'知道', en:'know' },
+];
+const COLORS = [
+'#FF6B6B', '#FF9F43', '#FECA57', '#48DBFB',
+'#FF9FF3', '#54A0FF', '#A29BFE', '#00D2D3',
+'#1DD1A1', '#FF6348',
+];
+const BALLOONS_PER_ROUND = 8;
+const WIN_SCORE = 10;
+const LOSE_SCORE = -5;
+const SPEED_SLOW = 20;
+const SPEED_FAST = 10;
+let score = 0;
+let round = 0;
+let active = false;
+let timers = [];
+let lastIdx = -1;
+const $ = id => document.getElementById(id);
+const rnd = (a, b) => Math.random() * (b - a) + a;
+function shuffle(arr) {
+const a = [...arr];
+for (let i = a.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[a[i], a[j]] = [a[j], a[i]];
+}
+return a;
+}
+const audio = new (window.AudioContext || window.webkitAudioContext)();
+function speakChinese(text) {
+if (!window.speechSynthesis) return;
+window.speechSynthesis.cancel();
+const utter = new SpeechSynthesisUtterance(text);
+utter.lang = 'zh-CN';
+utter.rate = 0.85;
+window.speechSynthesis.speak(utter);
+}
+function playWrong() {
+if (audio.state === 'suspended') audio.resume();
+[[247, 0], [220, 0.1]].forEach(([freq, when]) => {
+const osc = audio.createOscillator();
+const gain = audio.createGain();
+osc.connect(gain);
+gain.connect(audio.destination);
+osc.type = 'sawtooth';
+osc.frequency.value = freq;
+const t = audio.currentTime + when;
+gain.gain.setValueAtTime(0.2, t);
+gain.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+osc.start(t);
+osc.stop(t + 0.18);
+});
+}
+function shiftColor(hex, delta) {
+const n = parseInt(hex.slice(1), 16);
+const r = Math.min(255, Math.max(0, (n >> 16) + delta));
+const g = Math.min(255, Math.max(0, ((n >> 8) & 0xFF) + delta));
+const b = Math.min(255, Math.max(0, (n & 0xFF) + delta));
+return `rgb(${r},${g},${b})`;
+}
+function updateHUD() {
+$('score-el').textContent = `⭐ ${score}`;
+$('round-el').textContent = `Round ${round}`;
+}
+function flash(text, color) {
+const el = $('feedback');
+el.style.animation = 'none';
+el.textContent = text;
+el.style.color = color;
+void el.offsetWidth;
+el.style.animation = 'feedAnim 0.9s forwards';
+}
+function clearBalloons() {
+timers.forEach(clearTimeout);
+timers = [];
+$('game-area').innerHTML = '';
+}
+function speedFactor() {
+const v = parseFloat($('speed-slider').value);
+return v <= 2
+? Math.pow(2, (2 - v) / 2)
+: Math.pow(2, 2 - v);
+}
+document.addEventListener('DOMContentLoaded', () => {
+$('speed-slider').addEventListener('input', () => {
+const factor = speedFactor();
+document.querySelectorAll('.b-outer[data-base-dur]').forEach(el => {
+el.style.animationDuration = (parseFloat(el.dataset.baseDur) * factor) + 's';
+});
+});
+});
+function columnPositions(n) {
+const BALLOON_W = 120;
+const PAD = 8;
+const usable = window.innerWidth - PAD * 2 - BALLOON_W;
+const slot = usable / n;
+const positions = Array.from({ length: n }, (_, i) => {
+const slotLeft = PAD + i * slot;
+const jitter = rnd(-slot * 0.15, slot * 0.15);
+return Math.round(slotLeft + slot / 2 - BALLOON_W / 2 + jitter);
+});
+return shuffle(positions);
+}
+function spawnBalloon(word, isCorrect, delay, leftPx) {
+const t = setTimeout(() => {
+if (!active) return;
+const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+const baseDur = rnd(SPEED_FAST, SPEED_SLOW);
+const dur = baseDur * speedFactor();
+const outer = document.createElement('div');
+outer.className = 'b-outer';
+outer.dataset.baseDur = baseDur;
+outer.style.left = leftPx + 'px';
+outer.style.animationDuration = dur + 's';
+const body = document.createElement('div');
+body.className = 'b-body';
+body.style.background = `radial-gradient(circle at 35% 30%, ${shiftColor(color, 70)} 0%, ${color} 70%)`;
+body.style.setProperty('--c', color);
+const wordEl = document.createElement('span');
+wordEl.className = 'b-word';
+wordEl.textContent = word;
+const knot = document.createElement('div');
+knot.className = 'b-knot';
+knot.style.background = shiftColor(color, -50);
+const string = document.createElement('div');
+string.className = 'b-string';
+body.appendChild(wordEl);
+outer.appendChild(body);
+outer.appendChild(knot);
+outer.appendChild(string);
+outer.addEventListener('pointerdown', e => {
+e.preventDefault();
+handleClick(outer, body, isCorrect, word);
+});
+if (isCorrect) {
+outer.addEventListener('animationend', e => {
+if (e.animationName !== 'floatUp' || !active) return;
+flash('Missed! −1', '#FF4757');
+addScore(-1);
+endRound();
+});
+}
+$('game-area').appendChild(outer);
+}, delay);
+timers.push(t);
+}
+function handleClick(outer, body, isCorrect, word) {
+if (!active) return;
+outer.style.animationPlayState = 'paused';
+body.style.animation = 'pop 0.3s forwards';
+if (isCorrect) {
+speakChinese($('chinese-char').textContent);
+flash('+1 ✓', '#20bf6b');
+addScore(+1);
+endRound();
+} else {
+playWrong();
+flash('−1 ✗', '#FF4757');
+addScore(-1);
+}
+}
+function addScore(delta) {
+score += delta;
+updateHUD();
+if (score >= WIN_SCORE) { active = false; setTimeout(showWin, 500); }
+if (score <= LOSE_SCORE) { active = false; setTimeout(showLose, 500); }
+}
+function endRound() {
+if (!active) return;
+active = false;
+setTimeout(startRound, 700);
+}
+function startRound() {
+if (score >= WIN_SCORE || score <= LOSE_SCORE) return;
+clearBalloons();
+active = true;
+round++;
+updateHUD();
+let idx;
+do { idx = Math.floor(Math.random() * VOCAB.length); } while (idx === lastIdx);
+lastIdx = idx;
+const q = VOCAB[idx];
+$('chinese-char').textContent = q.zh;
+if ($('autoread-toggle').checked) speakChinese(q.zh);
+const distractors = shuffle(VOCAB.filter(v => v.en !== q.en))
+.slice(0, BALLOONS_PER_ROUND - 1)
+.map(v => v.en);
+const words = shuffle([q.en, ...distractors]);
+const positions = columnPositions(words.length);
+words.forEach((word, i) => {
+spawnBalloon(word, word === q.en, i * rnd(280, 650), positions[i]);
+});
+}
+function startGame() {
+score = 0; round = 0; lastIdx = -1;
+clearBalloons();
+['start-screen', 'win-screen', 'lose-screen'].forEach(id => $(id).style.display = 'none');
+$('hud').style.display = 'flex';
+$('question-area').style.display = 'block';
+updateHUD();
+startRound();
+}
+function showWin() {
+clearBalloons();
+$('hud').style.display = $('question-area').style.display = 'none';
+$('win-msg').textContent = `You finished ${round} rounds! 太棒了！(Excellent!)`;
+$('win-screen').style.display = 'flex';
+}
+function showLose() {
+clearBalloons();
+$('hud').style.display = $('question-area').style.display = 'none';
+$('lose-msg').textContent = `Score dropped to ${score}. Keep practicing! 加油！`;
+$('lose-screen').style.display = 'flex';
+}</script></body></html>

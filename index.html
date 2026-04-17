@@ -1,362 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTQ4W87FCQ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FTQ4W87FCQ');</script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>67 🔥</title><meta name="description" content="67 — a math puzzle game. Pick numbers and operators to make it equal 67, no cap 🔥"><link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🔥</text></svg>"><script async src="https://www.googletagmanager.com/gtag/js?id=G-FTQ4W87FCQ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FTQ4W87FCQ');</script><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box;}body{background:#08081a;color:white;font-family:'Arial Rounded MT Bold','Arial Black',Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px;overflow-x:hidden;}.title{font-size:clamp(4rem,20vw,7rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#ff6b6b 0%,#ffd93d 40%,#6bcb77 70%,#4d96ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;filter:drop-shadow(0 0 30px rgba(255,150,50,0.4));animation:titlePulse 3s ease-in-out infinite;}.subtitle{color:#6677aa;font-size:0.95rem;margin-top:4px;margin-bottom:28px;text-align:center;letter-spacing:0.5px;}.equation-area{background:#111128;border-radius:22px;padding:18px 24px;margin-bottom:28px;display:flex;align-items:center;gap:12px;border:2px solid #222244;justify-content:center;width:100%;max-width:380px;}.slot{width:76px;height:76px;border-radius:16px;border:3px dashed #334;display:flex;align-items:center;justify-content:center;font-size:1.9rem;font-weight:900;transition:transform 0.15s,border-color 0.15s,background 0.15s;color:#445;position:relative;}.slot:hover{border-color:#556;}.slot-clear{display:none;position:absolute;inset:0;border-radius:13px;background:rgba(0,0,0,0.55);backdrop-filter:blur(2px);color:white;font-size:1.5rem;font-weight:900;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity 0.18s;z-index:10;user-select:none;}.slot.filled .slot-clear{display:flex;}.slot.filled:hover .slot-clear{opacity:1;}.slot.filled:hover>span{opacity:0.3;}.slot.filled{border-style:solid;border-color:#4d96ff;background:#141e38;color:white;animation:popIn 0.2s cubic-bezier(0.34,1.56,0.64,1);}.slot>span{transition:opacity 0.18s;}.slot.op-slot{width:60px;height:60px;font-size:2rem;}.slot.op-slot.filled{border-color:#ffd93d;background:#1e1a00;color:#ffd93d;}.eq-equals{font-size:2rem;color:#445;}.eq-target{font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,#ff6b6b,#ffd93d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.section-label{color:#4455aa;font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;text-align:center;}.numbers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;width:100%;max-width:340px;}.number-tile{border-radius:16px;padding:18px 8px;font-size:1.7rem;font-weight:900;text-align:center;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s,opacity 0.2s;user-select:none;border:2px solid transparent;}.number-tile:active{transform:scale(0.93) !important;}.number-tile.used{opacity:0.25;cursor:not-allowed;transform:scale(0.92);}.color-0{background:#1a1f3c;border-color:#2a3060;color:#7799ff;}.color-1{background:#1a2c1a;border-color:#2a4a2a;color:#6bcb77;}.color-2{background:#2c1a1a;border-color:#4a2a2a;color:#ff8888;}.color-3{background:#2c261a;border-color:#4a3c2a;color:#ffd93d;}.color-4{background:#1a2a2c;border-color:#2a404a;color:#4dd9d9;}.color-5{background:#2a1a2c;border-color:#422a4a;color:#cc88ff;}.number-tile:not(.used):hover{transform:scale(1.07);box-shadow:0 6px 24px rgba(77,150,255,0.25);}.number-tile.selected{box-shadow:0 0 0 3px #4d96ff,0 6px 20px rgba(77,150,255,0.3);}.operators-row{display:flex;gap:16px;margin-bottom:26px;}.op-tile{width:78px;height:78px;border-radius:18px;border:2px solid #2a2a10;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:900;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s,opacity 0.2s;background:#1a1a00;color:#887700;user-select:none;}.op-tile:not(.used):hover{transform:scale(1.07);box-shadow:0 6px 24px rgba(255,217,61,0.2);color:#ffd93d;}.op-tile:active{transform:scale(0.93) !important;}.op-tile.used{opacity:0.25;cursor:not-allowed;}.op-tile.selected{border-color:#ffd93d;background:#1e1800;color:#ffd93d;box-shadow:0 0 0 3px #ffd93d,0 6px 20px rgba(255,217,61,0.3);opacity:1 !important;}.btn-row{display:flex;gap:12px;}.btn{padding:13px 22px;border-radius:14px;border:none;font-size:1rem;font-weight:700;cursor:pointer;transition:transform 0.15s,background 0.15s;font-family:inherit;}.btn:active{transform:scale(0.95);}.btn-clear{background:#1e1e2e;color:#667;}.btn-clear:hover{background:#252535;color:#aaa;}.btn-play{background:linear-gradient(135deg,#ff6b6b,#ff4f4f);color:white;}.btn-play:hover{transform:scale(1.05);}.overlay{display:none;position:fixed;inset:0;background:rgba(5,5,20,0.92);flex-direction:column;align-items:center;justify-content:center;z-index:200;padding:20px;animation:fadeIn 0.25s ease;}.overlay.show{display:flex;}.overlay-emoji{font-size:5.5rem;line-height:1;margin-bottom:18px;animation:bounceIn 0.5s cubic-bezier(0.34,1.56,0.64,1);}.overlay-title{font-family:'Fredoka','Arial Black',Arial,sans-serif;font-size:clamp(2rem,7vw,3rem);font-weight:400;letter-spacing:2px;text-align:center;margin-bottom:10px;}.overlay-sub{font-family:'Fredoka','Arial Black',Arial,sans-serif;font-size:1.25rem;letter-spacing:1px;color:#7788aa;text-align:center;margin-bottom:28px;max-width:300px;line-height:1.5;}.overlay-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}.win-title{color:#6bcb77;}.fail-title{color:#ff6b6b;}#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:199;}@keyframes titlePulse{0%,100%{filter:drop-shadow(0 0 30px rgba(255,150,50,0.4));}50%{filter:drop-shadow(0 0 50px rgba(100,200,255,0.5));}}@keyframes popIn{0%{transform:scale(0.7);}70%{transform:scale(1.12);}100%{transform:scale(1);}}@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}@keyframes bounceIn{0%{transform:scale(0) rotate(-20deg);opacity:0;}60%{transform:scale(1.25) rotate(5deg);opacity:1;}100%{transform:scale(1) rotate(0deg);}}@keyframes shake{0%,100%{transform:translateX(0);}18%{transform:translateX(-10px);}36%{transform:translateX(10px);}54%{transform:translateX(-8px);}72%{transform:translateX(8px);}88%{transform:translateX(-4px);}}.shaking{animation:shake 0.5s ease-out;}@keyframes winWiggle{0%{transform:rotate(0deg);}12%{transform:rotate(18deg);}28%{transform:rotate(-18deg);}44%{transform:rotate(18deg);}60%{transform:rotate(-18deg);}76%{transform:rotate(18deg);}90%{transform:rotate(-18deg);}100%{transform:rotate(0deg);}}@keyframes winTitleShake{0%{transform:rotate(0deg);}12%{transform:rotate(6deg);}28%{transform:rotate(-6deg);}44%{transform:rotate(6deg);}60%{transform:rotate(-6deg);}76%{transform:rotate(6deg);}90%{transform:rotate(-6deg);}100%{transform:rotate(0deg);}}.win-wiggle{animation:winWiggle 1.8s ease-in-out;}.win-title-shake{animation:winTitleShake 0.2s ease-in-out;}@keyframes memeShake{0%{transform:translate(0,0) rotate(0deg) scale(1);}10%{transform:translate(-6px,4px) rotate(-8deg) scale(1.10);}20%{transform:translate(6px,-4px) rotate(8deg) scale(1.15);}30%{transform:translate(-8px,5px) rotate(-10deg) scale(1.10);}40%{transform:translate(8px,-5px) rotate(10deg) scale(1.20);}50%{transform:translate(-5px,3px) rotate(-6deg) scale(1.10);}60%{transform:translate(5px,-3px) rotate(6deg) scale(1.15);}70%{transform:translate(-3px,2px) rotate(-3deg) scale(1.05);}80%{transform:translate(3px,-2px) rotate(3deg) scale(1.10);}90%{transform:translate(0,0) rotate(0deg) scale(1.05);}100%{transform:translate(0,0) rotate(0deg) scale(1);}}@keyframes flash{0%{color:#ff3b3b;text-shadow:0 0 10px #ff3b3b,0 0 30px #ff0000;}25%{color:#00ffea;text-shadow:0 0 10px #00ffea,0 0 30px #00ffaa;}50%{color:#ffff00;text-shadow:0 0 10px #ffff00,0 0 30px #ffcc00;}75%{color:#ff00ff;text-shadow:0 0 10px #ff00ff,0 0 30px #cc00ff;}100%{color:#ff3b3b;text-shadow:0 0 10px #ff3b3b,0 0 30px #ff0000;}}#win-67-display{font-family:'Fredoka','Arial Black',Arial,sans-serif;font-size:clamp(5rem,22vw,9rem);font-weight:400;letter-spacing:4px;color:#ff3b3b;text-shadow:0 0 10px #ff3b3b,0 0 30px #ff0000;display:inline-block;margin-bottom:10px;}#win-67-display.win-active{animation:memeShake 1s ease-in-out,flash 1s linear;}.diff-row{display:flex;gap:5px;margin-bottom:22px;background:#111128;border-radius:16px;padding:5px;border:2px solid #222244;}.diff-btn{padding:8px 16px;border-radius:11px;border:none;background:transparent;color:#445;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.15s;letter-spacing:0.5px;}.diff-btn:hover{color:#aaa;}.diff-btn.active{background:linear-gradient(135deg,#4d96ff,#3370cc);color:white;box-shadow:0 3px 10px rgba(77,150,255,0.3);}.equation-area.mode-hard{max-width:500px;gap:8px;}.equation-area.mode-harder{max-width:580px;gap:6px;padding:14px 16px;}.equation-area.mode-hard .slot{width:64px;height:64px;font-size:1.55rem;}.equation-area.mode-hard .op-slot{width:50px;height:50px;font-size:1.8rem;}.equation-area.mode-harder .slot{width:56px;height:56px;font-size:1.35rem;}.equation-area.mode-harder .op-slot{width:42px;height:42px;font-size:1.6rem;}.numbers-grid.cols-4{grid-template-columns:repeat(4,1fr);}.numbers-grid.cols-5{grid-template-columns:repeat(5,1fr);}</style></head><body><canvas id="confetti-canvas"></canvas><div class="title">67</div><div class="subtitle">make it equal 67, no cap 🔥</div><div class="diff-row"><button class="diff-btn active" id="diff-easy"   onclick="setDifficulty('easy')">easy</button><button class="diff-btn"        id="diff-hard"   onclick="setDifficulty('hard')">hard</button><button class="diff-btn"        id="diff-harder" onclick="setDifficulty('harder')">harder 💀</button></div><div class="equation-area mode-easy" id="equation-area"></div><div class="section-label" id="label-numbers">pick 2 numbers</div><div class="numbers-grid" id="numbers-grid"></div><div class="section-label" id="label-ops">pick an operator</div><div class="operators-row"><div class="op-tile" id="op-plus"  onclick="selectOp('+')">+</div><div class="op-tile" id="op-minus" onclick="selectOp('−')">−</div></div><div class="btn-row"><button class="btn btn-clear" onclick="clearAll()">clear ✕</button><button class="btn btn-play"  onclick="newGame()">new game 🔄</button></div><div class="overlay" id="win-overlay"><div id="win-67-display">67</div><div class="overlay-emoji" id="win-emoji">🔥</div><div class="overlay-title win-title" id="win-title">NO CAP THAT'S 67!</div><div class="overlay-sub" id="win-sub">you're literally built different fr fr</div><div class="overlay-btns"><button class="btn btn-play" onclick="newGame(); hideOverlay('win-overlay')">play again 🎮</button></div></div><div class="overlay" id="fail-overlay"><div class="overlay-emoji">💀</div><div class="overlay-title fail-title" id="fail-title">SIGMA… THAT AIN'T 67</div><div class="overlay-sub" id="fail-sub">big L, try again bestie</div><div class="overlay-btns"><button class="btn btn-clear" onclick="clearAll(); hideOverlay('fail-overlay')">try again</button><button class="btn btn-play"  onclick="newGame(); hideOverlay('fail-overlay')">new game 🔄</button></div></div><script>let numbers = [];
-let difficulty = 'easy';
-let selected = { nums: [null, null], ops: [null] };
-function diffCfg() {
-return { easy: { numCount:2, tileCount:6 },
-hard: { numCount:3, tileCount:8 },
-harder: { numCount:4, tileCount:10 } }[difficulty];
-}
-const WIN_MSGS = [
-{ emoji:'🔥', title:'NO CAP THAT\'S 67!', sub:'you\'re literally built different fr fr' },
-{ emoji:'🗣️', title:'RIZZ OVERLOAD!!', sub:'sigma math grindset achieved — that\'s 67!' },
-{ emoji:'⚡', title:'W BEHAVIOR!', sub:'you just cooked fr, that\'s 67 bestie!' },
-{ emoji:'🏆', title:'SLAY! YOU\'RE THE GOAT!', sub:'no cap you ate and left no crumbs, that\'s 67!' },
-{ emoji:'💯', title:'ON GOD THAT\'S 67!', sub:'based and math-pilled, you absolutely ate!' },
-{ emoji:'🎯', title:'POV: MATH GENIUS!', sub:'not me crying rn, that\'s actually 67 😭🔥' },
-{ emoji:'👑', title:'KING/QUEEN BEHAVIOR FR!', sub:'the math gods are quaking rn, that\'s 67!' },
-{ emoji:'🫡', title:'RESPECTFULLY… YOU ATE!', sub:'no notes, no cap, that\'s 67 and you know it' },
-{ emoji:'🚀', title:'UNDERSTOOD THE ASSIGNMENT!', sub:'glazing you rn ngl, that\'s 67!' },
-{ emoji:'😤', title:'MAIN CHARACTER MOMENT!', sub:'the numbers feared you fr, that\'s 67!' },
-{ emoji:'🎭', title:'CERTIFIED SIGMA MOVE!', sub:'the math just hit different, that\'s 67!' },
-{ emoji:'🤯', title:'SKIBIDI CORRECT!!', sub:'no way you actually got 67, that\'s unhinged 🔥' },
-{ emoji:'✨', title:'GIVING MATH GIRLIE/DUDE!', sub:'periodt, that\'s 67 and we are NOT taking questions' },
-{ emoji:'🦅', title:'BALD EAGLE APPROVED!', sub:'america would be proud, that\'s 67!' },
-{ emoji:'😎', title:'DELULU TO REAL-ULU!', sub:'you manifested 67 into existence bestie 🙏' },
-{ emoji:'🌊', title:'CAUGHT IN 4K WINNING!', sub:'the camera doesn\'t lie — that\'s 67, full send!' },
-{ emoji:'🐺', title:'LONE WOLF MENTALITY!', sub:'did the math alone in the dark, and it\'s 67 💀🔥' },
-{ emoji:'💎', title:'DIAMOND HANDS ON MATH!', sub:'never doubted for a second, that\'s 67 fr' },
-];
-const FAIL_MSGS = [
-{ title:'SIGMA… THAT AIN\'T 67', sub:'big yikes, that ain\'t it chief 💀' },
-{ title:'NAH BRO 💀', sub:'that\'s not 67, that\'s a whole entire L' },
-{ title:'RATIO + L + NOT 67', sub:'it didn\'t add up fam 😭' },
-{ title:'AIN\'T NO WAY…', sub:'are you fr rn? that\'s not 67 bro 💀' },
-{ title:'NPC BEHAVIOR DETECTED', sub:'the answer was supposed to be 67 smh 🤦' },
-{ title:'LOWKEY COOKED RN 😭', sub:'not 67 bestie, try again fr' },
-{ title:'CAUGHT IN 4K FLOPPING', sub:'bro the numbers were RIGHT THERE 💀' },
-{ title:'SKIBIDI INCORRECT 💀', sub:'the toilet would be disappointed, that\'s not 67' },
-{ title:'DELULU BEHAVIOR DETECTED', sub:'bestie that\'s not 67, come back to reality 😭' },
-{ title:'RESPECTFULLY… WHAT WAS THAT?', sub:'no cap that was the wildest guess I\'ve seen 💀' },
-{ title:'POV: YOU FUMBLED THE BAG', sub:'the 67 was right there and you walked past it 😤' },
-{ title:'NOT GIVING MATH AT ALL', sub:'zero rizz, zero math, that\'s not 67 😭' },
-{ title:'UNDERSTOOD NOTHING FR', sub:'the assignment was 67, just saying 🤷' },
-{ title:'W ATTEMPT, L RESULT', sub:'for the love of — that\'s still not 67 bro' },
-{ title:'MANIFESTED THE WRONG NUMBER', sub:'you were so close and yet so not 67 💀' },
-{ title:'THIS IS AN L WRAPPED IN AN L', sub:'67 is shaking its head rn, try harder bestie' },
-{ title:'BRUH. JUST… BRUH.', sub:'I don\'t even have words. that\'s not 67 😶' },
-{ title:'MAIN CHARACTER? NAH. NPC.', sub:'the side characters are doing better math rn 💀' },
-];
-function generateSolution(numCount) {
-for (let attempt = 0; attempt < 100; attempt++) {
-const nums = [];
-for (let i = 0; i < numCount - 1; i++) {
-nums.push(Math.floor(Math.random() * 49) + 1);
-}
-let running = nums[0];
-for (let i = 1; i < numCount - 1; i++) {
-running = Math.random() < 0.5 ? running + nums[i] : running - nums[i];
-if (Math.abs(running) > 200) break;
-}
-const lastOp = Math.random() < 0.5 ? '+' : '−';
-const last = lastOp === '+' ? 67 - running : running - 67;
-if (last < 1 || last >= 100) continue;
-nums.push(last);
-if (new Set(nums).size !== nums.length) continue;
-if (nums.some(v => v < 1 || v >= 100)) continue;
-return nums;
-}
-return null;
-}
-function generateNumbers() {
-const cfg = diffCfg();
-const usedValues = new Set();
-const tiles = [];
-let id = 0;
-const addVal = (v) => {
-if (!usedValues.has(v) && v > 0 && v < 100) {
-tiles.push({ id: id++, value: v });
-usedValues.add(v);
-return true;
-}
-return false;
-};
-const sol = generateSolution(cfg.numCount);
-if (sol) sol.forEach(v => addVal(v));
-let att = 0;
-while (tiles.length < cfg.tileCount && att++ < 300) {
-addVal(Math.floor(Math.random() * 97) + 1);
-}
-for (let i = tiles.length - 1; i > 0; i--) {
-const j = Math.floor(Math.random() * (i + 1));
-[tiles[i], tiles[j]] = [tiles[j], tiles[i]];
-}
-return tiles;
-}
-const COLORS = ['color-0','color-1','color-2','color-3','color-4','color-5'];
-function buildEquationArea() {
-const cfg = diffCfg();
-const ea = document.getElementById('equation-area');
-ea.className = `equation-area mode-${difficulty}`;
-ea.innerHTML = '';
-for (let i = 0; i < cfg.numCount; i++) {
-const slot = document.createElement('div');
-slot.className = 'slot';
-slot.id = `slot-num-${i}`;
-const span = document.createElement('span');
-span.id = `val-num-${i}`;
-span.textContent = '?';
-const x = document.createElement('div');
-x.className = 'slot-clear';
-x.textContent = '✕';
-x.onclick = () => clearNumSlot(i);
-slot.appendChild(span);
-slot.appendChild(x);
-ea.appendChild(slot);
-if (i < cfg.numCount - 1) {
-const opSlot = document.createElement('div');
-opSlot.className = 'slot op-slot';
-opSlot.id = `slot-op-${i}`;
-const opSpan = document.createElement('span');
-opSpan.id = `val-op-${i}`;
-opSpan.textContent = '?';
-const ox = document.createElement('div');
-ox.className = 'slot-clear';
-ox.textContent = '✕';
-ox.onclick = () => clearOpSlot(i);
-opSlot.appendChild(opSpan);
-opSlot.appendChild(ox);
-ea.appendChild(opSlot);
-}
-}
-const eq = document.createElement('div');
-eq.className = 'eq-equals';
-eq.textContent = '=';
-ea.appendChild(eq);
-const tgt = document.createElement('div');
-tgt.className = 'eq-target';
-tgt.textContent = '67';
-ea.appendChild(tgt);
-}
-function renderNumbers() {
-const cfg = diffCfg();
-const grid = document.getElementById('numbers-grid');
-const colClass = cfg.numCount === 4 ? 'cols-5' : cfg.numCount === 3 ? 'cols-4' : '';
-grid.className = `numbers-grid ${colClass}`;
-grid.innerHTML = '';
-numbers.forEach((n, i) => {
-const tile = document.createElement('div');
-tile.className = `number-tile ${COLORS[i % COLORS.length]}`;
-tile.id = `num-tile-${n.id}`;
-tile.textContent = n.value;
-tile.onclick = () => selectNumber(n.id);
-grid.appendChild(tile);
-});
-}
-function updateLabels() {
-const cfg = diffCfg();
-const opCount = cfg.numCount - 1;
-document.getElementById('label-numbers').textContent = `pick ${cfg.numCount} numbers`;
-document.getElementById('label-ops').textContent =
-`pick ${opCount} operator${opCount > 1 ? 's' : ''}`;
-}
-function renderSlots() {
-const cfg = diffCfg();
-for (let i = 0; i < cfg.numCount; i++) {
-const slot = document.getElementById(`slot-num-${i}`);
-const span = document.getElementById(`val-num-${i}`);
-if (!slot || !span) continue;
-if (selected.nums[i] !== null) {
-span.textContent = numById(selected.nums[i]).value;
-slot.classList.add('filled');
-} else {
-span.textContent = '?';
-slot.classList.remove('filled');
-}
-}
-for (let i = 0; i < cfg.numCount - 1; i++) {
-const slot = document.getElementById(`slot-op-${i}`);
-const span = document.getElementById(`val-op-${i}`);
-if (!slot || !span) continue;
-if (selected.ops[i] !== null) {
-span.textContent = selected.ops[i];
-slot.classList.add('filled');
-} else {
-span.textContent = '?';
-slot.classList.remove('filled');
-}
-}
-numbers.forEach(n => {
-const tile = document.getElementById(`num-tile-${n.id}`);
-if (!tile) return;
-const inUse = selected.nums.includes(n.id);
-tile.classList.toggle('used', inUse);
-tile.classList.toggle('selected', inUse);
-});
-document.getElementById('op-plus').classList.toggle('selected', selected.ops.some(op => op === '+'));
-document.getElementById('op-minus').classList.toggle('selected', selected.ops.some(op => op === '−'));
-document.getElementById('op-plus').classList.remove('used');
-document.getElementById('op-minus').classList.remove('used');
-}
-function selectNumber(id) {
-const cfg = diffCfg();
-const existingIdx = selected.nums.indexOf(id);
-if (existingIdx !== -1) {
-selected.nums[existingIdx] = null;
-renderSlots();
-return;
-}
-for (let i = 0; i < cfg.numCount; i++) {
-if (selected.nums[i] === null) {
-selected.nums[i] = id;
-renderSlots();
-maybeCheck();
-return;
-}
-}
-selected.nums[cfg.numCount - 1] = id;
-renderSlots();
-maybeCheck();
-}
-function selectOp(op) {
-const cfg = diffCfg();
-const opCount = cfg.numCount - 1;
-for (let i = 0; i < opCount; i++) {
-if (selected.ops[i] === null) {
-selected.ops[i] = op;
-renderSlots();
-maybeCheck();
-return;
-}
-}
-}
-function clearNumSlot(i) {
-selected.nums[i] = null;
-renderSlots();
-}
-function clearOpSlot(i) {
-selected.ops[i] = null;
-renderSlots();
-}
-function clearAll() {
-const cfg = diffCfg();
-selected = {
-nums: Array(cfg.numCount).fill(null),
-ops: Array(cfg.numCount - 1).fill(null),
-};
-renderSlots();
-}
-function maybeCheck() {
-const cfg = diffCfg();
-if (selected.nums.some(n => n === null)) return;
-if (selected.ops.some(op => op === null)) return;
-let result = numById(selected.nums[0]).value;
-for (let i = 0; i < cfg.numCount - 1; i++) {
-const b = numById(selected.nums[i + 1]).value;
-result = selected.ops[i] === '+' ? result + b : result - b;
-}
-if (result === 67) {
-setTimeout(showWin, 220);
-} else {
-setTimeout(() => showFail(result), 220);
-}
-}
-function showWin() {
-const msg = WIN_MSGS[Math.floor(Math.random() * WIN_MSGS.length)];
-const emoji = document.getElementById('win-emoji');
-const title = document.getElementById('win-title');
-const display = document.getElementById('win-67-display');
-emoji.textContent = msg.emoji;
-title.textContent = msg.title;
-document.getElementById('win-sub').textContent = msg.sub;
-document.getElementById('win-overlay').classList.add('show');
-display.classList.remove('win-active');
-void display.offsetWidth;
-display.classList.add('win-active');
-emoji.classList.remove('win-wiggle');
-title.classList.remove('win-title-shake');
-void emoji.offsetWidth;
-emoji.classList.add('win-wiggle');
-void title.offsetWidth;
-title.classList.add('win-title-shake');
-launchConfetti();
-}
-function showFail(got) {
-const msg = FAIL_MSGS[Math.floor(Math.random() * FAIL_MSGS.length)];
-document.getElementById('fail-title').textContent = msg.title;
-document.getElementById('fail-sub').textContent = `${msg.sub} (you got ${got})`;
-document.getElementById('fail-overlay').classList.add('show');
-const eq = document.getElementById('equation-area');
-eq.classList.remove('shaking');
-void eq.offsetWidth; 
-eq.classList.add('shaking');
-setTimeout(() => eq.classList.remove('shaking'), 520);
-}
-function hideOverlay(id) {
-document.getElementById(id).classList.remove('show');
-}
-function setDifficulty(d) {
-difficulty = d;
-document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
-document.getElementById(`diff-${d}`).classList.add('active');
-newGame();
-}
-function newGame() {
-const cfg = diffCfg();
-numbers = generateNumbers();
-selected = {
-nums: Array(cfg.numCount).fill(null),
-ops: Array(cfg.numCount - 1).fill(null),
-};
-buildEquationArea();
-renderNumbers();
-renderSlots();
-updateLabels();
-}
-function numById(id) {
-return numbers.find(n => n.id === id);
-}
-function launchConfetti() {
-const canvas = document.getElementById('confetti-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-const pieces = Array.from({ length: 160 }, () => ({
-x: Math.random() * canvas.width,
-y: -20 - Math.random() * 60,
-w: Math.random() * 10 + 5,
-h: Math.random() * 14 + 6,
-color:`hsl(${Math.random()*360},90%,65%)`,
-vx: (Math.random() - 0.5) * 5,
-vy: Math.random() * 3 + 2,
-rot: Math.random() * Math.PI * 2,
-vrot: (Math.random() - 0.5) * 0.18,
-life: 1,
-}));
-function animate() {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-let alive = false;
-pieces.forEach(p => {
-p.x += p.vx;
-p.y += p.vy;
-p.vy += 0.08;
-p.rot += p.vrot;
-p.life -= 0.004;
-if (p.y < canvas.height + 20 && p.life > 0) {
-alive = true;
-ctx.save();
-ctx.translate(p.x, p.y);
-ctx.rotate(p.rot);
-ctx.globalAlpha = Math.max(0, p.life);
-ctx.fillStyle = p.color;
-ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-ctx.restore();
-}
-});
-if (alive) requestAnimationFrame(animate);
-else ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-animate();
-}
-newGame();
-</script></body></html>
+    body {
+      min-height: 100vh;
+      background: #0d0d1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 40px 20px;
+      gap: 24px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      opacity: 0.85;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+
+    .tile {
+      position: relative;
+      width: 300px;
+      height: 220px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+
+    .tile:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.6);
+    }
+
+    .tile:active {
+      transform: scale(0.97);
+    }
+
+    /* Background layer — image or iframe */
+    .tile-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+
+    .tile-bg-img {
+      object-fit: cover;
+    }
+
+    /* Dark gradient overlay so text is always readable */
+    .tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.78) 0%,
+        rgba(0,0,0,0.25) 55%,
+        rgba(0,0,0,0.10) 100%
+      );
+    }
+
+    /* Text pinned to bottom */
+    .tile-info {
+      position: absolute;
+      bottom: 0;
+      left: 0; right: 0;
+      padding: 16px 20px;
+      color: #fff;
+    }
+
+    .tile-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .tile-desc {
+      font-size: 0.82rem;
+      opacity: 0.75;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Games</h1>
+
+<div class="grid">
+
+  <!-- six7 -->
+  <a class="tile" href="six7/index.html">
+    <iframe class="tile-bg" src="effect.html" scrolling="no" tabindex="-1"></iframe>
+    <div class="tile-overlay"></div>
+    <div class="tile-info">
+      <div class="tile-title">67</div>
+      <div class="tile-desc">Pick numbers &amp; operators to make 67 — no cap 🔥</div>
+    </div>
+  </a>
+
+  <!-- northPinyin -->
+  <a class="tile" href="northPinyin/index.html">
+    <img class="tile-bg tile-bg-img" src="pinyin.png" alt="Pinyin">
+    <div class="tile-overlay"></div>
+    <div class="tile-info">
+      <div class="tile-title">🎈 Balloon Pop</div>
+      <div class="tile-desc">Pop the balloon with the right Chinese meaning</div>
+    </div>
+  </a>
+
+</div>
+
+</body>
+</html>
