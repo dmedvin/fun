@@ -546,10 +546,16 @@ function shuffle(arr) {
 const audio = new (window.AudioContext || window.webkitAudioContext)();
 
 function speakChinese(text) {
-  if (!window.speechSynthesis) return;
+  if (muted || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'zh-CN';
+  // Pick the best available Chinese voice; fall back to browser default
+  const voices = window.speechSynthesis.getVoices();
+  const zhVoice = voices.find(v => v.lang.startsWith('zh'))
+                || voices.find(v => v.lang.startsWith('zh-TW'))
+                || null;
+  if (zhVoice) utter.voice = zhVoice;
+  utter.lang = zhVoice ? zhVoice.lang : 'zh-CN';
   utter.rate = 0.85;
   window.speechSynthesis.speak(utter);
 }
