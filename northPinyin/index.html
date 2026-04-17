@@ -249,7 +249,14 @@ const j = Math.floor(Math.random() * (i + 1));
 return a;
 }
 const audio = new (window.AudioContext || window.webkitAudioContext)();function _unlockAudio(){audio.resume();if(window.speechSynthesis){const u=new SpeechSynthesisUtterance('');u.volume=0;window.speechSynthesis.speak(u);}document.removeEventListener('pointerdown',_unlockAudio);}document.addEventListener('pointerdown',_unlockAudio);
+let muted = true;
+function toggleMute() {
+  muted = !muted;
+  $('mute-btn').textContent = muted ? '🔇' : '🔊';
+  $('mute-btn').title = muted ? 'Unmute sound' : 'Mute sound';
+}
 function speakChinese(text) {
+if (muted) return;
 if (!window.speechSynthesis) return;
 window.speechSynthesis.cancel();
 const utter = new SpeechSynthesisUtterance(text);
@@ -258,6 +265,7 @@ utter.rate = 0.85;
 window.speechSynthesis.speak(utter);
 }
 function playWrong() {
+if (muted) return;
 if (audio.state === 'suspended') audio.resume();
 [[247, 0], [220, 0.1]].forEach(([freq, when]) => {
 const osc = audio.createOscillator();
