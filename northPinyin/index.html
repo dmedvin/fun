@@ -545,6 +545,12 @@ function shuffle(arr) {
 // ── Audio (Web Audio API, no files needed) ────────────────────────────────────
 const audio = new (window.AudioContext || window.webkitAudioContext)();
 
+let muted = true;
+function toggleMute() {
+  muted = !muted;
+  $('mute-btn').textContent = muted ? '🔇' : '🔊';
+  $('mute-btn').title = muted ? 'Unmute sound' : 'Mute sound';
+}
 function speakChinese(text) {
   if (muted || !window.speechSynthesis) return;
   window.speechSynthesis.cancel();
@@ -561,6 +567,7 @@ function speakChinese(text) {
 }
 
 function playWrong() {
+  if (muted) return;
   if (audio.state === 'suspended') audio.resume();
   // Short descending buzz: B3 → A3
   [[247, 0], [220, 0.1]].forEach(([freq, when]) => {
