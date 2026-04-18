@@ -207,7 +207,10 @@
     button:active { transform: translateY(0); }
     .green { background: #20bf6b; }
     .red   { background: #eb3b5a; }
-  </style>
+    #mute-btn { background: none; border: none; font-size: 1.4rem; cursor: pointer; padding: 2px 4px; box-shadow: none; color: inherit; transition: transform 0.15s; }
+    #mute-btn:hover { transform: scale(1.2); box-shadow: none; }
+    #mute-btn:active { transform: scale(0.9); }
+</style>
 </head>
 <body>
 
@@ -248,6 +251,7 @@
     <input type="checkbox" id="autoread-toggle">
     <label for="autoread-toggle">🔊 Auto-read</label>
   </div>
+  <button id="mute-btn" onclick="toggleMute()" title="Mute sound">🔊</button>
   <span id="round-el">Round 1</span>
 </div>
 
@@ -545,7 +549,7 @@ function shuffle(arr) {
 // ── Audio (Web Audio API, no files needed) ────────────────────────────────────
 const audio = new (window.AudioContext || window.webkitAudioContext)();
 
-let muted = true;
+let muted = false;
 function toggleMute() {
   muted = !muted;
   $('mute-btn').textContent = muted ? '🔇' : '🔊';
